@@ -6,7 +6,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     environment: {
-              // The environment supports arrow functions ('() => { ... }').
+    // The environment supports arrow functions ('() => { ... }').
       arrowFunction: false,
       // The environment supports BigInt as literal (123n).
       bigIntLiteral: false,
@@ -36,6 +36,18 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: 'ts-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images', // Output path for the images
+              name: '[name].[ext]', // Name of the file in the output directory
+            },
+          },
+        ],
       }
     ]
   },
