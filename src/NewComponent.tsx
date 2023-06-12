@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-
+import React, { useState } from "react";
 const NewComponent = () => {
-    useEffect(() => {
-        fetch("https://my-json-server.typicode.com/typicode/demo/posts").then(res => res.json()).then(res => console.log(res))
-    })
-    return (<div>Hello World!!</div>)
+    const [count, setCount] = useState(1);
+    return (<><div>{count}</div><button onClick={() => setCount(count + 1)}>click</button></>)
 }
 
 export default NewComponent;

@@ -1,12 +1,11 @@
-import "core-js";
+import "../polyfills";
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
 import NewComponent from "./NewComponent";
 
+const container = document.getElementById('app')
+const root = createRoot(container!);
+root.render(<NewComponent />)
 
-ReactDOM.render(
-  <NewComponent />,
-  document.getElementById('app')
-);
 
 export {}
