@@ -6,7 +6,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     environment: {
-    // The environment supports arrow functions ('() => { ... }').
+      // The environment supports arrow functions ('() => { ... }').
       arrowFunction: false,
       // The environment supports BigInt as literal (123n).
       bigIntLiteral: false,
@@ -48,6 +48,10 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       }
     ]
   },
@@ -56,8 +60,8 @@ module.exports = {
   },
   devServer: {
     static: {
-        directory: path.resolve(__dirname, 'dist')
-    },    
+      directory: path.resolve(__dirname, 'dist')
+    },
     compress: true,
     port: 3000
   },
