@@ -1,10 +1,10 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
     environment: {
       // The environment supports arrow functions ('() => { ... }').
       arrowFunction: false,
@@ -28,42 +28,42 @@ module.exports = {
       optionalChaining: false,
       // The environment supports template literals.
       templateLiteral: false,
-    }
+    },
   },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(tsx|jsx|js|ts)?$/,
         exclude: /node_modules/,
-        use: 'ts-loader'
+        use: "babel-loader",
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              outputPath: 'images', // Output path for the images
-              name: '[name].[ext]', // Name of the file in the output directory
+              outputPath: "images", // Output path for the images
+              name: "[name].[ext]", // Name of the file in the output directory
             },
           },
         ],
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: [".tsx", ".ts", ".js", "jsx"],
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist')
+      directory: path.resolve(__dirname, "dist"),
     },
     compress: true,
-    port: 3000
+    port: 3000,
   },
-  mode: "development"
+  mode: "development",
 };
