@@ -1,11 +1,10 @@
 import "../polyfills";
-import React from 'react';
-import {createRoot} from 'react-dom/client';
-import NewComponent from "./NewComponent";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import Terminal from "./Terminal";
 
-const container = document.getElementById('app')
+const container = document.getElementById("app");
 const root = createRoot(container!);
-root.render(<NewComponent />)
+root.render(<Terminal />);
 
-
-export {}
+export {};
